@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <SafeAreaView style={tw`h-full dark:bg-slate-800 bg-white`}>
       <Image
-        style={tw.style('w-8/12 mx-auto my-12', {
+        style={tw.style('w-8/12 mx-auto my-20', {
           resizeMode:'contain'
         })}
         source={require('../assets/cv-logo.png')}

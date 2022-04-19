@@ -6,7 +6,7 @@ import {
     faBook,
     faPlus,
     faUser,
-    faGear,
+    faEllipsis,
 } from '@fortawesome/free-solid-svg-icons'
 import tw from 'twrnc'
 import ItemSeparator from './ItemSeparator'
@@ -44,31 +44,31 @@ const NavBar = () => {
         {
             id:5,
             name:'Others',
-            icon:faGear,
+            icon:faEllipsis,
             nav:'Others'
         }
     ]
     return (
-    <View style={tw`absolute bottom-0 rounded-lg`}>
+    <View style={tw`absolute bottom-0 rounded-lg shadow-md`}>
         <FlatList
             data={list}
             keyExtractor={(item: any) => item.id}
             horizontal={true}
             scrollEnabled={false}
-            ItemSeparatorComponent={ItemSeparator}
+            //ItemSeparatorComponent={ItemSeparator}
             renderItem={({ item: { name, icon, nav } }) => {
                 if (nav!==route.name) {
                     return (
                         <TouchableOpacity
                             onPress={()=>navigation.navigate(nav)}
-                            style={tw.style('bg-neutral-100 rounded py-5',{
+                            style={tw.style('bg-neutral-100 py-5',{
                                 width: width/5
                             })}
                         >
                             <FontAwesomeNative
                                 icon={icon}
                                 size={30}
-                                style={tw`text-sky-700 mx-auto my-auto mb-1`}
+                                style={tw`text-sky-600 mx-auto my-auto mb-1`}
                             />
                             <Text 
                                 style={tw.style('text-center text-xs text-sky-600',{
@@ -85,17 +85,17 @@ const NavBar = () => {
                             onPress={()=>{
                                 navigation.navigate(nav)
                             }}
-                            style={tw.style('bg-neutral-200 rounded py-5',{
+                            style={tw.style('bg-neutral-100 rounded py-5',{
                                 width: width/5
                             })}
                         >
                             <FontAwesomeNative
                                 icon={icon}
                                 size={30}
-                                style={tw`text-sky-600 mx-auto my-auto mb-1`}
+                                style={tw`text-sky-500 mx-auto my-auto mb-1`}
                             />
                             <Text 
-                                style={tw.style('text-center text-xs text-sky-600',{
+                                style={tw.style('text-center text-xs text-sky-500',{
                                     fontFamily:'noto-sans-medium'
                                 })}
                             >
