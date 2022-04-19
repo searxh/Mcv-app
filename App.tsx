@@ -1,16 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './pages/Login'
-import LoginChula from './pages/LoginChula'
 import React from 'react'
 import LoadFonts from './fonts'
 import AppLoading from 'expo-app-loading'
-
-const Stack = createNativeStackNavigator();
+import tw, { useDeviceContext } from 'twrnc'
+import Routes from './Routes'
+import { StatusBar } from 'expo-status-bar'
 
 export default function App() {
   const [appIsReady, setAppIsReady] = React.useState(false)
+  useDeviceContext(tw)
+
   if (!appIsReady) {
     return (
       <AppLoading
@@ -22,16 +22,15 @@ export default function App() {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Login"
+      <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios'?'padding':'height'}
+          keyboardVerticalOffset={Platform.OS === 'ios'?-64:0}
+          enabled={true}
+          style={{flex:1}}
       >
-        <Stack.Screen name="Login" component={Login} options={{
-          headerShown: false,
-        }} />
-        <Stack.Screen name="LoginChula" component={LoginChula} options={{
-          headerShown: false,
-        }} />
-      </Stack.Navigator>
+        <Routes />
+        <StatusBar style="auto" />
+      </KeyboardAvoidingView>
     </NavigationContainer>
   )
 }

@@ -7,8 +7,10 @@ const InputField = (props:any) => {
     <View
         style={tw`mx-auto w-10/12 border-2 border-neutral-300 rounded-lg p-5 pt-3 ${props.style}`}
     >
-      <TextInput 
-        style={tw`text-xl text-neutral-500`}
+      <TextInput
+        style={tw.style('text-xl text-neutral-500',{
+          fontFamily: 'noto-sans-medium'
+        })}
         placeholder={props.placeholder}
         secureTextEntry={props.secure}
         keyboardType={'default'}

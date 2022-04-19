@@ -11,7 +11,7 @@ import { useNavigation } from '@react-navigation/native'
 const Login = () => {
   const navigation = useNavigation<any>()
   return (
-    <SafeAreaView style={tw`bg-white h-full`}>
+    <SafeAreaView style={tw`h-full dark:bg-slate-800 bg-white`}>
       <Image
         style={tw.style('w-8/12 mx-auto my-12', {
           resizeMode:'contain'
@@ -52,7 +52,7 @@ const Login = () => {
       </LoginButton>
       <LoginButton callback={()=>null} style='bg-white border-2 border-neutral-200'>
         <View style={tw`flex-row mx-auto`}>
-          <Google style={tw`-mx-36`} />
+          <Google style={tw`-mx-32`} />
           <Text style={tw`text-center text-xl text-slate-400`}>
             Sign in with Google
           </Text>
