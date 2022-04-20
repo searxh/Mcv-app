@@ -26,8 +26,8 @@ const LoginChula = () => {
                 })}
                 source={require('../assets/logo-itchula.png')}
             />
-            <InputField placeholder={'Username'} style={'mb-4'} secure={false} />
-            <InputField placeholder={'Password'} secure={true} />
+            <InputField placeholder={'Username'} style='w-10/12 mb-4' secure={false} />
+            <InputField placeholder={'Password'} style='w-10/12' secure={true} />
             <View style={tw`flex-row w-8/12 mx-auto mt-4`}>
                 <BouncyCheckbox 
                     onPress={() => {}}
@@ -49,7 +49,7 @@ const LoginChula = () => {
                 }}
             >
                 <Text
-                    style={tw.style('text-xl text-white text-center',{
+                    style={tw.style('text-lg text-white text-center',{
                         fontFamily:'noto-sans-medium'
                     })}>
                     Login

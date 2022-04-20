@@ -19,24 +19,24 @@ const Login = () => {
         source={require('../assets/cv-logo.png')}
       />
       <LoginButton callback={()=>null} style='bg-sky-600'>
-        <Text style={tw`text-center text-xl text-white`}>
+        <Text style={tw`text-center text-lg text-white`}>
           Log in with Facebook
         </Text>
       </LoginButton>
       <LoginButton callback={()=>navigation.navigate('LoginChula')} style='bg-white border-2 border-neutral-200'>
         <View style={tw`flex-row mx-auto`}>
-          <Text style={tw`text-center text-xl text-slate-400`}>
+          <Text style={tw`text-center text-lg text-slate-400`}>
             Log in with
           </Text>
           <CU style={tw`mx-2`} />
-          <Text style={tw`text-center text-xl text-slate-400`}>
+          <Text style={tw`text-center text-lg text-slate-400`}>
             account
           </Text>
         </View>
       </LoginButton>
       <LoginButton callback={()=>null} style='bg-white border-2 border-neutral-200'>
         <View style={tw`flex-row mx-auto`}>
-          <Text style={tw`text-center text-xl text-slate-400`}>
+          <Text style={tw`text-center text-lg text-slate-400`}>
             Log in with
           </Text>
           <Image
@@ -45,15 +45,15 @@ const Login = () => {
             })}
             source={require('../assets/cv-logo.png')}
           />
-          <Text style={tw`text-center text-xl text-slate-400`}>
+          <Text style={tw`text-center text-lg text-slate-400`}>
             platform
           </Text>
         </View>
       </LoginButton>
       <LoginButton callback={()=>null} style='bg-white border-2 border-neutral-200'>
         <View style={tw`flex-row mx-auto`}>
-          <Google style={tw`-mx-32`} />
-          <Text style={tw`text-center text-xl text-slate-400`}>
+          <Google style={tw`-mx-28`} />
+          <Text style={tw`text-center text-lg text-slate-400`}>
             Sign in with Google
           </Text>
         </View>

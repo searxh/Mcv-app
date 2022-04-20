@@ -1,5 +1,4 @@
 import React from 'react'
-import { View, Text } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Login from './pages/Login'
@@ -9,8 +8,8 @@ import Account from './pages/Account'
 import Feed from './pages/Feed'
 import Register from './pages/Register'
 import Others from './pages/Others'
-import NavBar from './components/NavBar'
-import Ionicons from '@expo/vector-icons/Ionicons'
+import { allcourses } from './data/courses'
+import Course from './pages/Course'
 
 const Tabs = () => {
     const Tab = createBottomTabNavigator()
@@ -48,6 +47,22 @@ const Tabs = () => {
                     display:'none'
                 }
             }} />
+            { allcourses.map((item:any)=>{
+                return (
+                    <Tab.Screen 
+                        initialParams={item} 
+                        name={item.course} 
+                        key={item.id} 
+                        component={Course}
+                        options={{
+                            headerShown: false,
+                            tabBarStyle: {
+                                display:'none'
+                            }
+                        }}
+                     />
+                )
+            })}
         </Tab.Navigator>
     )
 }

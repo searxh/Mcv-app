@@ -9,8 +9,7 @@ import { StatusBar } from 'expo-status-bar'
 
 export default function App() {
   const [appIsReady, setAppIsReady] = React.useState(false)
-  useDeviceContext(tw)
-
+  useDeviceContext(tw, { withDeviceColorScheme: true })
   if (!appIsReady) {
     return (
       <AppLoading
@@ -25,7 +24,7 @@ export default function App() {
       <KeyboardAvoidingView
           behavior={Platform.OS === 'ios'?'padding':'height'}
           keyboardVerticalOffset={Platform.OS === 'ios'?-64:0}
-          enabled={true}
+          enabled={false}
           style={{flex:1}}
       >
         <Routes />
@@ -34,12 +33,3 @@ export default function App() {
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

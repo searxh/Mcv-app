@@ -1,9 +1,11 @@
-import { View, FlatList, Image, Text, TouchableOpacity, Dimensions } from 'react-native'
-import React from 'react'
+import { View, TouchableOpacity, Text, Dimensions, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
+import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const CourseList = (props:any) => {
     const { width } = Dimensions.get('window')
+    const navigation = useNavigation<any>()
     const converter = (object:any) => {
         const len = Object.keys(object).length
         const arr = []
@@ -22,11 +24,12 @@ const CourseList = (props:any) => {
                 renderItem={({ item: { id, course, png } }) => {
                     return (
                         <TouchableOpacity
-                            style={tw.style('bg-neutral-100 shadow-md px-4 py-5 mr-2 rounded-lg',{
-                                width:width/2.12
+                            onPress={()=>navigation.navigate(course)}
+                            style={tw.style('bg-neutral-100 shadow-md px-4 py-5 mr-3 mb-3 rounded-lg',{
+                                width:width/2.15
                             })}
                         >
-                            <Text style={tw.style('text-xl text-sky-600 mb-2 text-center',{
+                            <Text style={tw.style('text-xl text-sky-600 text-center',{
                                 fontFamily:'noto-sans-medium'
                             })}>
                                 {id}
@@ -37,7 +40,7 @@ const CourseList = (props:any) => {
                                 })}
                                 source={png}
                             />
-                            <Text style={tw.style('text-base text-neutral-600 text-center',{
+                            <Text style={tw.style('text-sm text-neutral-600 text-center',{
                                 fontFamily:'noto-sans-medium'
                             })}>
                                 {course}

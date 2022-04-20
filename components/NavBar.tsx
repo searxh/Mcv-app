@@ -49,7 +49,7 @@ const NavBar = () => {
         }
     ]
     return (
-    <View style={tw`absolute bottom-0 rounded-lg shadow-md`}>
+    <View style={tw`bg-neutral-100`}>
         <FlatList
             data={list}
             keyExtractor={(item: any) => item.id}
@@ -61,7 +61,7 @@ const NavBar = () => {
                     return (
                         <TouchableOpacity
                             onPress={()=>navigation.navigate(nav)}
-                            style={tw.style('bg-neutral-100 py-5',{
+                            style={tw.style('bg-white py-4',{
                                 width: width/5
                             })}
                         >
@@ -85,17 +85,17 @@ const NavBar = () => {
                             onPress={()=>{
                                 navigation.navigate(nav)
                             }}
-                            style={tw.style('bg-neutral-100 rounded py-5',{
+                            style={tw.style('bg-white py-4',{
                                 width: width/5
                             })}
                         >
                             <FontAwesomeNative
                                 icon={icon}
                                 size={30}
-                                style={tw`text-sky-500 mx-auto my-auto mb-1`}
+                                style={tw`text-yellow-600 mx-auto my-auto mb-1`}
                             />
                             <Text 
-                                style={tw.style('text-center text-xs text-sky-500',{
+                                style={tw.style('text-center text-xs text-yellow-600',{
                                     fontFamily:'noto-sans-medium'
                                 })}
                             >
