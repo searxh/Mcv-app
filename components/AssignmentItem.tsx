@@ -1,0 +1,77 @@
+import { View, Text, TouchableOpacity, Image, Alert } from 'react-native'
+import React from 'react'
+import BouncyCheckbox from 'react-native-bouncy-checkbox'
+import tw from 'twrnc'
+import { useNavigation } from '@react-navigation/native'
+
+const AssignmentItem = ({props,removeHw}:any) => {
+    const [checkboxState, setCheckboxState] = React.useState<any>(false)
+    const navigation = useNavigation<any>()
+    const createTwoButtonAlert = (id:number, setCheckboxState:Function) => {
+        Alert.alert(
+        "Confirmation",
+        "Mark this assignment as done?",
+        [
+            {
+            text: "Cancel",
+            onPress: () => setCheckboxState(()=>false),
+            style: "cancel"
+            },
+            { text: "Confirm", onPress: () => {
+                setCheckboxState(()=>true)
+                removeHw(id)
+            }}
+        ]
+        )
+    }
+    return (
+        <TouchableOpacity
+            onPress={()=>navigation.navigate(props.assignment)}
+            style={tw.style('bg-white shadow-md px-4 py-5 mr-3 mb-3 rounded-lg w-full')}
+        >
+            <View style={tw`flex-row justify-between`}>
+                <Image
+                    style={tw.style('m-2 h-15 w-15', {
+                        resizeMode:'contain',
+                    })}
+                    source={props.png}
+                />
+                <View style={tw`mx-5 flex-1`}>
+                    <Text style={tw.style('text-base text-sky-600 text-left',{
+                        fontFamily:'noto-sans-medium'
+                    })}>
+                        {props.assignment}
+                    </Text>
+                    <Text style={tw.style('text-sm text-neutral-500 text-left',{
+                        fontFamily:'noto-sans-medium'
+                    })}>
+                        {props.course}
+                    </Text>
+                    <View style={tw`mb-1`}></View>
+                    <Text style={tw.style('text-sm text-yellow-600 text-left',{
+                        fontFamily:'noto-sans-medium'
+                    })}>
+                        dues in {props.duein}
+                    </Text>
+                </View>
+                <BouncyCheckbox
+                    isChecked={checkboxState}
+                    disableBuiltInState={true}
+                    onPress={()=>{
+                        createTwoButtonAlert(props.id,setCheckboxState)
+                    }}
+                    iconStyle={{
+                        borderRadius: 5,
+                    }}
+                    fillColor="#a3a3a3"
+                    textStyle={{
+                        textDecorationLine: "none",
+                        fontFamily: "noto-sans-medium"
+                    }}
+                />
+            </View>
+        </TouchableOpacity>
+    )
+}
+
+export default AssignmentItem

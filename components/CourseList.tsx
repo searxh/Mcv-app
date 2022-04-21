@@ -25,11 +25,11 @@ const CourseList = (props:any) => {
                     return (
                         <TouchableOpacity
                             onPress={()=>navigation.navigate(course)}
-                            style={tw.style('bg-neutral-100 shadow-md px-4 py-5 mr-3 mb-3 rounded-lg',{
+                            style={tw.style('bg-white shadow-md px-4 py-5 mr-3 mb-3 rounded-lg',{
                                 width:width/2.15
                             })}
                         >
-                            <Text style={tw.style('text-xl text-sky-600 text-center',{
+                            <Text style={tw.style('text-lg text-sky-600 text-center',{
                                 fontFamily:'noto-sans-medium'
                             })}>
                                 {id}

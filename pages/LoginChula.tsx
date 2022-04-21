@@ -12,10 +12,13 @@ const LoginChula = () => {
     const navigation = useNavigation<any>()
     return (
         <SafeAreaView style={tw`bg-white dark:bg-slate-800 h-full`}>
-            <ReturnButton callback={()=>{
-                navigation.goBack()
-            }}/>
-            <Text style={tw.style('p-10 pb-0 text-xl',{
+            <ReturnButton 
+                style="mx-3 mt-2"
+                callback={()=>{
+                    navigation.goBack()
+                }}
+            />
+            <Text style={tw.style('p-10 pb-0 text-xl', {
                 fontFamily: 'noto-sans-medium'
             })}>
                 Log in with CU account

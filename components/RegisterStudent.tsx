@@ -17,7 +17,7 @@ const RegisterStudent = () => {
         setSelectedItem(item)
     }
     return (
-        <View style={tw`bg-neutral-200 h-full`}>
+        <View style={tw`bg-neutral-200 pt-2 h-full`}>
             {!registerVisible?
             <View style={tw`m-2 bg-white w-11/12 mx-auto rounded-lg shadow-md p-5`}>
                 <View style={tw`w-11/12 mx-auto mb-2`}>
@@ -44,7 +44,7 @@ const RegisterStudent = () => {
                     <AutocompleteDropdown
                         clearOnFocus={false}
                         closeOnBlur={true}
-                        closeOnSubmit={true}
+                        closeOnSubmit={false}
                         initialValue={{ id: '2' }}
                         onSelectItem={onSelectItem}
                         suggestionsListMaxHeight={150}
@@ -88,7 +88,7 @@ const RegisterStudent = () => {
                         style="bg-sky-600 w-11/12 mt-10"
                         callback={()=>setRegisterVisible(true)}
                     >
-                        <Text style={tw.style('text-neutral-200 text-center text-lg',{
+                        <Text style={tw.style('text-neutral-100 text-center text-lg',{
                             fontFamily:'noto-sans-medium'
                         })}>
                             Select Course
@@ -104,7 +104,7 @@ const RegisterStudent = () => {
                         style={tw.style('m-2', {
                         resizeMode:'contain'
                         })}
-                        source={selectedItem.png}
+                        source={selectedItem?.png}
                     />
                     <View style={tw`flex-1`}>
                         <Text
@@ -112,7 +112,7 @@ const RegisterStudent = () => {
                                 fontFamily:'noto-sans-medium',
                             })}
                         >
-                            {selectedItem.title} {'('}{selectedYear}{')'}
+                            {selectedItem?.title} {'('}{selectedYear}{')'}
                         </Text>
                     </View>
                 </View>
@@ -134,7 +134,7 @@ const RegisterStudent = () => {
                     style="bg-sky-600 w-11/12 mt-5"
                     callback={()=>{}}
                 >
-                    <Text style={tw.style('text-neutral-200 text-center text-lg',{
+                    <Text style={tw.style('text-neutral-100 text-center text-lg',{
                         fontFamily:'noto-sans-medium'
                     })}>
                         Request to register

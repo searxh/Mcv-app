@@ -1,4 +1,4 @@
-import { Text } from 'react-native'
+import { Dimensions, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import React from 'react'
 import NavBar from '../components/NavBar'
@@ -6,16 +6,35 @@ import tw from 'twrnc'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import RegisterInstructor from '../components/RegisterInstructor'
 import RegisterStudent from '../components/RegisterStudent'
+import { FontAwesomeIcon as FontAwesomeNative } from '@fortawesome/react-native-fontawesome'
+import { faSync } from '@fortawesome/free-solid-svg-icons'
+import LoginButton from '../components/LoginButton'
 
 const Register = () => {
   return (
-    <SafeAreaView style={tw`bg-white relative h-full`}>
-      <Text style={tw.style('text-sky-600 text-xl my-6 ml-5',{
+    <SafeAreaView style={tw`bg-white h-full`}>
+      <Text style={tw.style('text-sky-600 text-xl my-4 ml-5',{
           fontFamily:'noto-sans-medium'
       })}>
           Registering
       </Text>
       <Tabs />
+      <LoginButton callback={()=>{}} style='bg-pink-600 w-11/12 p-3 shadow-md'>
+        <View style={tw`flex-row justify-center`}>
+        <FontAwesomeNative
+            icon={faSync}
+            size={30}
+            style={tw`text-white my-auto mr-5 mb-1`}
+        />
+        <View style={tw`flex-row`}>
+            <Text style={tw.style('text-base text-center text-white',{
+                fontFamily:'noto-sans-medium'
+            })}>
+                Sync courses with RegChula
+            </Text>
+        </View>
+        </View>
+      </LoginButton>
       <NavBar />
     </SafeAreaView>
   )
@@ -30,9 +49,11 @@ const Tabs = () => {
           screenOptions={{
               tabBarLabelStyle: { 
                   fontFamily:'noto-sans-medium',
-                  fontSize: 15,
+                  fontSize: 14,
+                  textTransform:'none',
               },
               tabBarItemStyle: {
+                  width:Dimensions.get('window').width/2,
                   borderTopWidth: 0.5,
                   borderTopColor:'#d5d5d5'
               },

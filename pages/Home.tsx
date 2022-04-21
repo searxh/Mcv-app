@@ -1,4 +1,4 @@
-import { Text } from 'react-native'
+import { Dimensions, Text } from 'react-native'
 import React from 'react'
 import { SafeAreaView  } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
@@ -14,10 +14,10 @@ const Home = () => {
     const navigation = useNavigation<any>()
     return (
         <SafeAreaView style={tw`bg-white h-full`}>
-            <Text style={tw.style('text-sky-600 text-xl my-6 ml-5',{
+            <Text style={tw.style('text-sky-600 text-xl my-4 ml-5',{
                 fontFamily:'noto-sans-medium'
-            })} >
-                Courses I have joined
+            })}>
+                My Courses
             </Text>
             <Semester />
             <NavBar />
@@ -38,7 +38,7 @@ const Semester = () => {
                 },
                 tabBarScrollEnabled:true,
                 tabBarItemStyle: {
-                    width: 150,
+                    width: Dimensions.get('window').width/3,
                     borderTopWidth: 0.5,
                     borderTopColor:'#d5d5d5'
                 },

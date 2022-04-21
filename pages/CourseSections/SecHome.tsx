@@ -2,11 +2,12 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import tw from 'twrnc'
 
-const RegisterInstructor = () => {
+const SecHome = () => {
   return (
     <View style={tw`bg-neutral-200 h-full`}>
+      <Text>SecHome</Text>
     </View>
   )
 }
 
-export default RegisterInstructor
+export default SecHome

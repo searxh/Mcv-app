@@ -69,7 +69,7 @@ const DropdownField = ({ callback, getData }:any) => {
             textStyle={{
                 fontFamily:'noto-sans-medium',
                 fontSize:17,
-                color:'#a3a3a3',
+                color:'#222222',
                 paddingVertical:5,
                 paddingHorizontal:8,
             }}

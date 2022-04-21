@@ -7,7 +7,7 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 const ReturnButton = (props:any) => {
   return (
     <TouchableOpacity
-        style={tw`w-12 h-12`}
+        style={tw`w-12 h-12 ${props.style}`}
         onPress={()=>props.callback()}
     >
         <FontAwesomeNative

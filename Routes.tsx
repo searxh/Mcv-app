@@ -9,7 +9,13 @@ import Feed from './pages/Feed'
 import Register from './pages/Register'
 import Others from './pages/Others'
 import { allcourses } from './data/courses'
-import Course from './pages/Course'
+import Course from './pages/CourseSections/Course'
+import Assignment from './pages/Assignment'
+import Announcement from './pages/Announcement'
+import Material from './pages/Material'
+import { hw } from './data/homework'
+import { announcements } from './data/announcements'
+import { materials } from './data/materials'
 
 const Tabs = () => {
     const Tab = createBottomTabNavigator()
@@ -61,6 +67,54 @@ const Tabs = () => {
                             }
                         }}
                      />
+                )
+            })}
+            { hw.map((item:any)=>{
+                return (
+                    <Tab.Screen 
+                        initialParams={item} 
+                        name={item.assignment} 
+                        key={item.id} 
+                        component={Assignment}
+                        options={{
+                            headerShown: false,
+                            tabBarStyle: {
+                                display:'none'
+                            }
+                        }}
+                     />
+                )
+            })}
+            { announcements.map((item:any)=>{
+                return (
+                    <Tab.Screen 
+                        initialParams={item} 
+                        name={item.announcement} 
+                        key={item.id} 
+                        component={Announcement}
+                        options={{
+                            headerShown: false,
+                            tabBarStyle: {
+                                display:'none'
+                            }
+                        }}
+                    />
+                )
+            })}
+            { materials.map((item:any)=>{
+                return (
+                    <Tab.Screen 
+                        initialParams={item} 
+                        name={item.material} 
+                        key={item.id} 
+                        component={Material}
+                        options={{
+                            headerShown: false,
+                            tabBarStyle: {
+                                display:'none'
+                            }
+                        }}
+                    />
                 )
             })}
         </Tab.Navigator>
