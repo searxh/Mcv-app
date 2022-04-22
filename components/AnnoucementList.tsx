@@ -1,17 +1,24 @@
 import { View, TouchableOpacity, Text, Alert, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { announcements } from '../data/announcements'
-import LoginButton from './LoginButton'
+import { getRecentAnnouncements } from '../data/courses'
 import AnnouncementItem from './AnnouncementItem'
+import { useIsFocused } from '@react-navigation/native'
 
 const AnnouncementList = () => {
-    const navigation = useNavigation<any>()
-    const [announcement,setAnnouncement] = React.useState<any>(announcements)
-    const removeAnnouncement = (id:number) => {
-        setTimeout(()=>setAnnouncement(()=>announcement.filter((item:any)=>item.id!==id)),600)
+    const temp = getRecentAnnouncements()
+    const [announcement,setAnnouncement] = React.useState<any>(temp)
+    const removeAnnouncement = (announcementID:number) => {
+        setTimeout(()=>setAnnouncement(()=>announcement.filter((item:any)=>item.announcementID!==announcementID)),500)
     }
+    const isFocused = useIsFocused()
+    let i = 0
+    React.useEffect(()=>{
+        //clear the list when it is cleared
+        if(i===announcement.length) {
+            setAnnouncement(()=>[])
+        }
+    },[isFocused])
     return (
         <View style={tw`bg-neutral-200 p-2 h-full`}>
             <View style={tw`flex-row`}>
@@ -42,7 +49,7 @@ const AnnouncementList = () => {
             </View>
             <FlatList
                 data={announcement}
-                keyExtractor={(item: any) => item.id}
+                keyExtractor={(item: any) => item.announcementID}
                 ListEmptyComponent={
                     <View style={tw`p-20`}>
                         <Text
@@ -54,8 +61,13 @@ const AnnouncementList = () => {
                         </Text>
                     </View>
                 }
-                renderItem={({item}) => {
-                    return <AnnouncementItem props={item} removeAnnouncement={removeAnnouncement} />
+                renderItem={({item }) => {
+                    if (!item.viewed) {
+                        return <AnnouncementItem props={item} removeAnnouncement={removeAnnouncement} />
+                    }
+                    i++
+                    return null
+                    //fake clear
                 }}
             />
         </View>

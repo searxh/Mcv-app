@@ -40,14 +40,22 @@ const Tabs = () => {
               tabBarLabelStyle: { 
                   fontFamily:'noto-sans-medium',
                   fontSize: 14,
+                  color:'#ffffff',
                   textTransform:'none',
               },
               tabBarItemStyle: {
                   width: Dimensions.get('window').width/3,
                   paddingHorizontal:5,
-                  borderTopWidth: 0.5,
-                  borderTopColor:'#d5d5d5'
               },
+              tabBarIndicatorStyle:{
+                backgroundColor:'#0173b6',
+                height:'100%'
+              },
+              tabBarStyle:{
+                  borderTopWidth: 0.5,
+                  borderTopColor:'#d4d4d4',
+                  backgroundColor:'#0284c7'
+              }
           }}
       >
         <Tab.Screen name="Assignments" component={AssignmentList} />

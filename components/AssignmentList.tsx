@@ -1,16 +1,13 @@
 import { View, TouchableOpacity, Text, Alert, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
 import { hw } from '../data/homework'
-import LoginButton from './LoginButton'
 import AssignmentItem from './AssignmentItem'
 
 const AssignmentList = () => {
-    const navigation = useNavigation<any>()
     const [homework,setHomework] = React.useState<any>(hw)
     const removeHomework = (id:number) => {
-        setTimeout(()=>setHomework(()=>homework.filter((item:any)=>item.id!==id)),600)
+        setTimeout(()=>setHomework(()=>homework.filter((item:any)=>item.id!==id)),500)
     }
     return (
         <View style={tw`bg-neutral-200 p-2 h-full`}>

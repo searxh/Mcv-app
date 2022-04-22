@@ -19,7 +19,7 @@ const Register = () => {
           Registering
       </Text>
       <Tabs />
-      <LoginButton callback={()=>{}} style='bg-pink-600 w-11/12 p-3 shadow-md'>
+      <LoginButton callback={()=>{}} style='bg-pink-600 w-11/12 p-2 shadow-md'>
         <View style={tw`flex-row justify-center`}>
         <FontAwesomeNative
             icon={faSync}
@@ -47,16 +47,24 @@ const Tabs = () => {
   return (
       <Tab.Navigator
           screenOptions={{
-              tabBarLabelStyle: { 
-                  fontFamily:'noto-sans-medium',
-                  fontSize: 14,
-                  textTransform:'none',
-              },
-              tabBarItemStyle: {
-                  width:Dimensions.get('window').width/2,
-                  borderTopWidth: 0.5,
-                  borderTopColor:'#d5d5d5'
-              },
+            tabBarLabelStyle: { 
+                fontFamily:'noto-sans-medium',
+                fontSize: 14,
+                color:'#ffffff',
+                textTransform:'none',
+            },
+            tabBarItemStyle: {
+                width:Dimensions.get('window').width/2,
+            },
+            tabBarIndicatorStyle:{
+                backgroundColor:'#0173b6',
+                height:'100%'
+            },
+            tabBarStyle:{
+                borderTopWidth: 0.5,
+                borderTopColor:'#d4d4d4',
+                backgroundColor:'#0284c7'
+            }
           }}
       >
           <Tab.Screen name={"As a Student"} component={RegisterStudent} />

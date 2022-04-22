@@ -4,7 +4,7 @@ import tw from 'twrnc'
 
 const ItemSeparator = () => {
   return (
-    <View style={tw`w-[0.5px] h-10/12 my-auto bg-neutral-300`}>
+    <View style={tw`w-[0.5px] w-11/12 my-auto bg-neutral-500`}>
     </View>
   )
 }

@@ -1,16 +1,14 @@
 import { View, TouchableOpacity, Text, Alert, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { materials } from '../data/materials'
-import LoginButton from './LoginButton'
+import { getRecentMaterials } from '../data/courses'
 import MaterialItem from './MaterialItem'
 
 const MaterialList = () => {
-    const navigation = useNavigation<any>()
-    const [material,setMaterial] = React.useState<any>(materials)
-    const removeMaterial = (id:number) => {
-        setTimeout(()=>setMaterial(()=>material.filter((item:any)=>item.id!==id)),600)
+    const temp = getRecentMaterials()
+    const [material,setMaterial] = React.useState<any>(temp)
+    const removeMaterial = (materialID:number) => {
+        setTimeout(()=>setMaterial(()=>material.filter((item:any)=>item.materialID!==materialID)),500)
     }
     return (
         <View style={tw`bg-neutral-200 p-2 h-full`}>
@@ -42,7 +40,7 @@ const MaterialList = () => {
             </View>
             <FlatList
                 data={material}
-                keyExtractor={(item: any) => item.id}
+                keyExtractor={(item: any) => item.materialID}
                 ListEmptyComponent={
                     <View style={tw`p-20`}>
                         <Text

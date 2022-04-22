@@ -14,12 +14,17 @@ import Assignment from './pages/Assignment'
 import Announcement from './pages/Announcement'
 import Material from './pages/Material'
 import { hw } from './data/homework'
-import { announcements } from './data/announcements'
-import { materials } from './data/materials'
+import { getAllAnnouncements, getAllMaterials } from './data/courses'
+import { AnnouncementsContext } from './data/context'
+
+const all_announcements = getAllAnnouncements()
 
 const Tabs = () => {
     const Tab = createBottomTabNavigator()
+    const materials = getAllMaterials()
+    const [announcements,setAnnouncements] = React.useState(all_announcements)
     return (
+        <AnnouncementsContext.Provider value={{announcements:announcements,setAnnouncements:setAnnouncements}}>
         <Tab.Navigator
             initialRouteName='Home'
         >
@@ -56,8 +61,8 @@ const Tabs = () => {
             { allcourses.map((item:any)=>{
                 return (
                     <Tab.Screen 
-                        initialParams={item} 
-                        name={item.course} 
+                        initialParams={item}
+                        name={item.course}
                         key={item.id} 
                         component={Course}
                         options={{
@@ -89,8 +94,8 @@ const Tabs = () => {
                 return (
                     <Tab.Screen 
                         initialParams={item} 
-                        name={item.announcement} 
-                        key={item.id} 
+                        name={item.announcementID.toString()}
+                        key={item.announcementID} 
                         component={Announcement}
                         options={{
                             headerShown: false,
@@ -105,8 +110,8 @@ const Tabs = () => {
                 return (
                     <Tab.Screen 
                         initialParams={item} 
-                        name={item.material} 
-                        key={item.id} 
+                        name={item.materialID.toString()} 
+                        key={item.materialID} 
                         component={Material}
                         options={{
                             headerShown: false,
@@ -118,6 +123,7 @@ const Tabs = () => {
                 )
             })}
         </Tab.Navigator>
+        </AnnouncementsContext.Provider>
     )
 }
 const Routes = () => {

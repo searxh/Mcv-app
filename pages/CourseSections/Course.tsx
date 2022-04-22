@@ -24,7 +24,7 @@ const Course = (props:any) => {
     const navigation = useNavigation<any>()
     return (
         <SafeAreaView
-            style={tw`bg-white h-full shadow-md`}
+            style={tw`bg-white h-full`}
         >
             <View style={tw`flex-row my-1`}>
                 <ReturnButton style="my-auto" callback={()=>navigation.goBack()} />
@@ -45,7 +45,7 @@ const Course = (props:any) => {
                         {data.id}
                     </Text>
                     <Text
-                        style={tw.style('text-base text-left',{
+                        style={tw.style('text-neutral-700 text-base text-left',{
                             fontFamily:'noto-sans-medium'
                         })}
                     >
@@ -74,7 +74,7 @@ const Course = (props:any) => {
                 </LoginButton>
 
             </View>
-            <Sections />
+            <Sections data={data} />
             <NavBar />
         </SafeAreaView>
     )
@@ -82,7 +82,7 @@ const Course = (props:any) => {
 
 export default Course
 
-const Sections = () => {
+const Sections = ({ data }:any) => {
     const Tab = createMaterialTopTabNavigator();
     return (
         <Tab.Navigator
@@ -114,6 +114,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"Home"}
                 component={SecHome}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faHome} />
                 }} 
@@ -121,6 +122,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"HW"}
                 component={SecAssignments}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faHouseLaptop} />
                 }}
@@ -128,6 +130,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"Portfolio"} 
                 component={SecPortfolio}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faRectangleList} />
                 }}
@@ -135,6 +138,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"Groups"}
                 component={SecGroups}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faUserGroup} />
                 }}
@@ -142,6 +146,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"Resources"} 
                 component={SecWebResources}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faLink} />
                 }}
@@ -149,6 +154,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"Schedule"}
                 component={SecSchedule}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faCalendar} />
                 }}
@@ -156,6 +162,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"Discussion"}
                 component={SecDiscussions}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faComments} />
                 }}
@@ -163,6 +170,7 @@ const Sections = () => {
             <Tab.Screen 
                 name={"About"}
                 component={SecAbout}
+                initialParams={data}
                 options={{
                     tabBarIcon: ()=> <Icon icon={faCircleInfo} />
                 }}

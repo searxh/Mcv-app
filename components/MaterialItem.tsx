@@ -26,7 +26,7 @@ const MaterialItem = ({ props,removeMaterial }:any) => {
     }
     return (
         <TouchableOpacity
-            onPress={()=>navigation.navigate(props.material)}
+            onPress={()=>navigation.navigate(props.materialID.toString())}
             style={tw.style('bg-white shadow-md px-4 py-5 mr-3 mb-3 rounded-lg w-full')}
         >
             <View style={tw`flex-row justify-between`}>
@@ -51,14 +51,14 @@ const MaterialItem = ({ props,removeMaterial }:any) => {
                     <Text style={tw.style('text-sm text-yellow-600 text-left',{
                         fontFamily:'noto-sans-medium'
                     })}>
-                        {props.daysago}
+                        {props.daysago} days ago
                     </Text>
                 </View>
                 <BouncyCheckbox
                     isChecked={checkboxState}
                     disableBuiltInState={true}
                     onPress={()=>{
-                        createTwoButtonAlert(props.id,setCheckboxState)
+                        createTwoButtonAlert(props.materialID,setCheckboxState)
                     }}
                     iconStyle={{
                         borderRadius: 5,
