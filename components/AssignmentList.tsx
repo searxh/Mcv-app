@@ -1,12 +1,11 @@
 import { View, TouchableOpacity, Text, Alert, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
 import React from 'react'
-import { getRecentAssignments } from '../data/courses'
 import AssignmentItem from './AssignmentItem'
+import { AnnouncementsContext } from '../data/context'
 
 const AssignmentList = () => {
-    const temp = getRecentAssignments()
-    const [homework,setHomework] = React.useState<any>(temp)
+    const { homework, setHomework }:any = React.useContext(AnnouncementsContext)
     const removeHomework = (assignmentID:number) => {
         setTimeout(()=>setHomework(()=>homework.filter((item:any)=>item.assignmentID!==assignmentID)),500)
     }

@@ -1,13 +1,12 @@
 import { View, TouchableOpacity, Text, Alert, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
 import React from 'react'
-import { getRecentAnnouncements } from '../data/courses'
 import AnnouncementItem from './AnnouncementItem'
 import { useIsFocused } from '@react-navigation/native'
+import { AnnouncementsContext } from '../data/context'
 
 const AnnouncementList = () => {
-    const temp = getRecentAnnouncements()
-    const [announcement,setAnnouncement] = React.useState<any>(temp)
+    const { announcement, setAnnouncement }:any = React.useContext(AnnouncementsContext)
     const removeAnnouncement = (announcementID:number) => {
         setTimeout(()=>setAnnouncement(()=>announcement.filter((item:any)=>item.announcementID!==announcementID)),500)
     }

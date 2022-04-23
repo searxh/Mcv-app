@@ -9,6 +9,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import MaterialList from '../components/MaterialList'
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as FontAwesomeNative } from '@fortawesome/react-native-fontawesome'
+import { AnnouncementsContext } from '../data/context'
 
 const Feed = () => {
   return (
@@ -53,6 +54,11 @@ export default Feed
 
 const Tabs = () => {
   const Tab = createMaterialTopTabNavigator();
+  const { 
+    material, 
+    announcement,
+    homework,
+  }:any = React.useContext(AnnouncementsContext)
   return (
       <Tab.Navigator
           screenOptions={{
@@ -61,12 +67,6 @@ const Tabs = () => {
                   fontSize: 14,
                   color:'#ffffff',
                   textTransform:'none',
-              },
-              tabBarBadge:()=>{
-                return (
-                  <View style={tw`rounded-full h-3 w-3 bg-red-500`}>
-                  </View>
-                )
               },
               tabBarItemStyle: {
                   width: Dimensions.get('window').width/3,
@@ -83,9 +83,54 @@ const Tabs = () => {
               }
           }}
       >
-        <Tab.Screen name="Assignments" component={AssignmentList} />
-        <Tab.Screen name="Announcements" component={AnnouncementList} />
-        <Tab.Screen name="Course Materials" component={MaterialList} />
+        <Tab.Screen 
+          options={{
+            tabBarBadge:()=>{
+              if (homework.length!==0) {
+                return (
+                  <View style={tw`rounded-full h-3 w-3 bg-red-500`}>
+                  </View>
+                )
+              } else {
+                return null
+              }
+            }
+          }} 
+          name="Assignments" 
+          component={AssignmentList} 
+        />
+        <Tab.Screen
+          options={{
+            tabBarBadge:()=>{
+              if (announcement.length!==0) {
+                return (
+                  <View style={tw`rounded-full h-3 w-3 bg-red-500`}>
+                  </View>
+                )
+              } else {
+                return null
+              }
+            }
+          }}
+          name="Announcements" 
+          component={AnnouncementList} 
+        />
+        <Tab.Screen 
+          options={{
+            tabBarBadge:()=>{
+              if (material.length!==0) {
+                return (
+                  <View style={tw`rounded-full h-3 w-3 bg-red-500`}>
+                  </View>
+                )
+              } else {
+                return null
+              }
+            }
+          }} 
+          name="Course Materials" 
+          component={MaterialList} 
+        />
       </Tab.Navigator>
     )
 }

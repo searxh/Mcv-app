@@ -12,7 +12,15 @@ import Course from './pages/CourseSections/Course'
 import Assignment from './pages/Assignment'
 import Announcement from './pages/Announcement'
 import Material from './pages/Material'
-import { getAllAnnouncements, getAllMaterials, allcourses, getAllAssignments } from './data/courses'
+import { 
+    getAllAnnouncements, 
+    getAllMaterials, 
+    allcourses, 
+    getAllAssignments,
+    getRecentAnnouncements,
+    getRecentAssignments,
+    getRecentMaterials,
+ } from './data/courses'
 import { AnnouncementsContext } from './data/context'
 
 const all_announcements = getAllAnnouncements()
@@ -22,8 +30,21 @@ const Tabs = () => {
     const materials = getAllMaterials()
     const assignments = getAllAssignments()
     const [announcements,setAnnouncements] = React.useState(all_announcements)
+
+    const [announcement,setAnnouncement] = React.useState(getRecentAnnouncements())
+    const [homework,setHomework] = React.useState(getRecentAssignments())
+    const [material,setMaterial] = React.useState(getRecentMaterials())
     return (
-        <AnnouncementsContext.Provider value={{announcements:announcements,setAnnouncements:setAnnouncements}}>
+        <AnnouncementsContext.Provider value={{
+            announcements:announcements,
+            setAnnouncements:setAnnouncements,
+            announcement:announcement,
+            setAnnouncement:setAnnouncement,
+            homework:homework,
+            setHomework:setHomework,
+            material:material,
+            setMaterial:setMaterial,
+        }}>
         <Tab.Navigator
             initialRouteName='Home'
         >

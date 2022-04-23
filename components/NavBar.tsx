@@ -10,11 +10,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import tw from 'twrnc'
 import { useNavigation, useRoute } from '@react-navigation/native'
+import { AnnouncementsContext } from '../data/context'
 
 const NavBar = ({ identify }:any) => {
     const { width } = Dimensions.get('window')
     const navigation = useNavigation<any>()
     const route = useRoute()
+    const { 
+        material, 
+        announcement,
+        homework,
+      }:any = React.useContext(AnnouncementsContext)
     const list = [
         {
             id:1,
@@ -63,7 +69,10 @@ const NavBar = ({ identify }:any) => {
                                 width: width/5
                             })}
                         >
-                            {icon===faBell?<View style={tw`absolute right-7 top-4 w-3 h-3 bg-red-500 shadow-md rounded-full z-1`}></View>:null}
+                            {icon===faBell&&(homework.length!==0 && announcement.length!==0 && material.length!==0)?
+                                <View style={tw`absolute right-7 top-4 w-3 h-3 bg-red-500 shadow-md rounded-full z-1`}></View>
+                                :null
+                            }
                             <FontAwesomeNative
                                 icon={icon}
                                 size={30}

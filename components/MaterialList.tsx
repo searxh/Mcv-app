@@ -1,12 +1,11 @@
 import { View, TouchableOpacity, Text, Alert, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
 import React from 'react'
-import { getRecentMaterials } from '../data/courses'
 import MaterialItem from './MaterialItem'
+import { AnnouncementsContext } from '../data/context'
 
 const MaterialList = () => {
-    const temp = getRecentMaterials()
-    const [material,setMaterial] = React.useState<any>(temp)
+    const { material, setMaterial }:any = React.useContext(AnnouncementsContext)
     const removeMaterial = (materialID:number) => {
         setTimeout(()=>setMaterial(()=>material.filter((item:any)=>item.materialID!==materialID)),500)
     }
