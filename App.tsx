@@ -6,6 +6,8 @@ import AppLoading from 'expo-app-loading'
 import tw, { useDeviceContext } from 'twrnc'
 import Routes from './Routes'
 import { StatusBar } from 'expo-status-bar'
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import { toastConfig } from './ToastConfig'
 
 export default function App() {
   const [appIsReady, setAppIsReady] = React.useState(false)
@@ -28,6 +30,7 @@ export default function App() {
           style={{flex:1}}
       >
         <Routes />
+        <Toast config={toastConfig} />
         <StatusBar style="auto" />
       </KeyboardAvoidingView>
     </NavigationContainer>

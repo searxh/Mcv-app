@@ -26,7 +26,9 @@ const AssignmentItem = ({props,removeHw}:any) => {
     }
     return (
         <TouchableOpacity
-            onPress={()=>navigation.navigate(props.assignment)}
+            onPress={()=>navigation.navigate(props.assignmentID.toString(),{
+                previous:'feed'
+            })}
             style={tw.style('bg-white shadow-md px-4 py-5 mr-3 mb-3 rounded-lg w-full')}
         >
             <View style={tw`flex-row justify-between`}>
@@ -51,14 +53,14 @@ const AssignmentItem = ({props,removeHw}:any) => {
                     <Text style={tw.style('text-sm text-yellow-600 text-left',{
                         fontFamily:'noto-sans-medium'
                     })}>
-                        dues in {props.duein}
+                        dues in {props.duein} days
                     </Text>
                 </View>
                 <BouncyCheckbox
                     isChecked={checkboxState}
                     disableBuiltInState={true}
                     onPress={()=>{
-                        createTwoButtonAlert(props.id,setCheckboxState)
+                        createTwoButtonAlert(props.assignmentID,setCheckboxState)
                     }}
                     iconStyle={{
                         borderRadius: 5,

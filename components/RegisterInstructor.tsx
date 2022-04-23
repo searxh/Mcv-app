@@ -4,7 +4,7 @@ import tw from 'twrnc'
 
 const RegisterInstructor = () => {
   return (
-    <View style={tw`bg-neutral-200 h-full`}>
+    <View style={tw`bg-sky-100 h-full`}>
     </View>
   )
 }

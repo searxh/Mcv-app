@@ -1,45 +1,30 @@
 import { View, TouchableOpacity, Text, Alert, Image, FlatList } from 'react-native'
 import tw from 'twrnc'
 import React from 'react'
-import { hw } from '../data/homework'
+import { getRecentAssignments } from '../data/courses'
 import AssignmentItem from './AssignmentItem'
 
 const AssignmentList = () => {
-    const [homework,setHomework] = React.useState<any>(hw)
-    const removeHomework = (id:number) => {
-        setTimeout(()=>setHomework(()=>homework.filter((item:any)=>item.id!==id)),500)
+    const temp = getRecentAssignments()
+    const [homework,setHomework] = React.useState<any>(temp)
+    const removeHomework = (assignmentID:number) => {
+        setTimeout(()=>setHomework(()=>homework.filter((item:any)=>item.assignmentID!==assignmentID)),500)
     }
     return (
-        <View style={tw`bg-neutral-200 p-2 h-full`}>
+        <View style={tw`bg-sky-100 p-2 h-full`}>
             <View style={tw`flex-row`}>
-                {/*
-                <LoginButton
-                    style="bg-sky-600 p-3 w-[45%] shadow-md"
-                    callback={()=>setHomework(hw)}
-                >
+                <View style={tw`bg-green-600 p-1 w-full shadow-md rounded-lg`}>
                     <Text
                         style={tw.style('text-white text-base text-center',{
                             fontFamily:'noto-sans-medium'
                         })}>
-                            Show all
+                            {homework.length} items due in 14 days
                     </Text>
-                </LoginButton>
-                <LoginButton
-                    style="bg-sky-600 p-3 w-[45%] shadow-md"
-                    callback={()=>setHomework(null)}
-                >
-                    <Text
-                        style={tw.style('text-white text-base text-center',{
-                            fontFamily:'noto-sans-medium'
-                        })}>
-                            Hide all
-                    </Text>
-                </LoginButton>
-                */}
+                </View>
             </View>
             <FlatList
                 data={homework}
-                keyExtractor={(item: any) => item.id}
+                keyExtractor={(item: any) => item.assignmentID}
                 ListEmptyComponent={
                     <View style={tw`p-20`}>
                         <Text

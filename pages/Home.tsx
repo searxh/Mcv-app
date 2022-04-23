@@ -1,7 +1,6 @@
 import { Dimensions, Text } from 'react-native'
 import React from 'react'
 import { SafeAreaView  } from 'react-native-safe-area-context'
-import { useNavigation } from '@react-navigation/native'
 import NavBar from '../components/NavBar'
 import tw from 'twrnc'
 import CourseList from '../components/CourseList'
@@ -11,10 +10,9 @@ import {
   } from "@react-navigation/material-top-tabs";
 
 const Home = () => {
-    const navigation = useNavigation<any>()
     return (
         <SafeAreaView style={tw`bg-white h-full`}>
-            <Text style={tw.style('text-sky-600 text-xl my-4 ml-5',{
+            <Text style={tw.style('text-sky-600 text-xl my-5 ml-5',{
                 fontFamily:'noto-sans-medium'
             })}>
                 My Courses

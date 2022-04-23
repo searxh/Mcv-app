@@ -7,7 +7,7 @@ import HomeMaterialItem from '../../components/home/HomeMaterialItem'
 const SecHome = (props:any) => {
     const data = props.route.params
     return (
-        <View style={tw`bg-neutral-200 h-full`}>
+        <View style={tw`bg-sky-100 h-full`}>
             <View style={tw`w-[95%] mx-auto my-2 h-4/12`}>
                 <View style={tw`bg-sky-600 rounded-md px-5 py-1`}>
                     <Text style={tw.style('text-white text-base',{
@@ -35,7 +35,7 @@ const SecHome = (props:any) => {
                     }}
                 />
             </View>
-            <View style={tw`w-[95%] mx-auto flex-1 h-8/12`}>
+            <View style={tw`w-[95%] mx-auto flex-1 h-8/12 rounded-lg bg-white mb-1 shadow-lg`}>
                 <View style={tw`bg-sky-600 rounded-md px-5 py-1`}>
                     <Text style={tw.style('text-white text-base',{
                         fontFamily:'noto-sans-medium'
@@ -45,6 +45,7 @@ const SecHome = (props:any) => {
                 </View>
                 <FlatList
                     data={data.materials}
+                    style={tw`my-1`}
                     keyExtractor={(item: any) => item.materialID}
                     ListEmptyComponent={
                         <View style={tw`p-10`}>

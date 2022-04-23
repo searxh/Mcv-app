@@ -7,7 +7,7 @@ import ReturnButton from '../../components/ReturnButton'
 import { useNavigation } from '@react-navigation/native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { FontAwesomeIcon as FontAwesomeNative } from '@fortawesome/react-native-fontawesome'
-import { faLink, faHome, faHouseLaptop, faRectangleList, faUserGroup, faW, faCalendar, faComments, faCircleInfo, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { faLink, faHome, faHouseLaptop, faRectangleList, faUserGroup, faCalendar, faComments, faCircleInfo, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
 
 import SecAbout from './SecAbout'
 import SecAssignments from './SecAssignments'
@@ -75,7 +75,7 @@ const Course = (props:any) => {
 
             </View>
             <Sections data={data} />
-            <NavBar />
+            <NavBar identify="Home" />
         </SafeAreaView>
     )
 }
@@ -128,7 +128,7 @@ const Sections = ({ data }:any) => {
                 }}
             />
             <Tab.Screen 
-                name={"Portfolio"} 
+                name={"Grades"} 
                 component={SecPortfolio}
                 initialParams={data}
                 options={{

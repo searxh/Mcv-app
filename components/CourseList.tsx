@@ -16,7 +16,7 @@ const CourseList = (props:any) => {
     }
     const data = converter(props.route.params)
     return (
-        <View style={tw`bg-neutral-200 p-2 h-full`}>
+        <View style={tw`bg-sky-100 p-2 h-full`}>
             <FlatList
                 data={data}
                 keyExtractor={(item: any) => item.id}
@@ -25,7 +25,7 @@ const CourseList = (props:any) => {
                     return (
                         <TouchableOpacity
                             onPress={()=>navigation.navigate(course)}
-                            style={tw.style('bg-white shadow-md px-4 py-5 mr-3 mb-3 rounded-lg',{
+                            style={tw.style('bg-white shadow-lg px-4 py-5 mr-3 mb-3 rounded-lg',{
                                 width:width/2.15
                             })}
                         >

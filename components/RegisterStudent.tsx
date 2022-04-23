@@ -6,6 +6,7 @@ import DropdownField from '../components/DropdownField'
 import LoginButton from './LoginButton'
 import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown'
 import { searchcourses } from '../data/courses'
+import Toast from 'react-native-toast-message'
 
 const RegisterStudent = () => {
     const [selectedItem, setSelectedItem] = React.useState<any>(null)
@@ -16,8 +17,15 @@ const RegisterStudent = () => {
     const onSelectItem = (item:any) => {
         setSelectedItem(item)
     }
+    const showToast = () => {
+        Toast.show({
+            type:'success',
+            text1: 'Request Sent',
+            text2: 'Status: Pending approval'
+        })
+    }
     return (
-        <View style={tw`bg-neutral-200 pt-2 h-full`}>
+        <View style={tw`bg-sky-100 pt-2 h-full`}>
             {!registerVisible?
             <View style={tw`m-2 bg-white w-11/12 mx-auto rounded-lg shadow-md p-5`}>
                 <View style={tw`w-11/12 mx-auto mb-2`}>
@@ -132,7 +140,7 @@ const RegisterStudent = () => {
                 />
                 <LoginButton
                     style="bg-sky-600 w-11/12 mt-5"
-                    callback={()=>{}}
+                    callback={showToast}
                 >
                     <Text style={tw.style('text-neutral-100 text-center text-lg',{
                         fontFamily:'noto-sans-medium'

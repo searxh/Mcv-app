@@ -9,15 +9,17 @@ const HomeMaterialItem = ({ props }:any) => {
     const navigation = useNavigation<any>()
     return (
         <TouchableOpacity 
-            style={tw`flex-row bg-sky-100 rounded-md shadow-md p-2 py-5 mx-auto mb-1`}
-            onPress={()=>navigation.navigate(props.materialID.toString())}
+            style={tw`w-[97%] flex-row bg-sky-100 rounded-md shadow-sm p-2 py-5 mx-auto mb-1`}
+            onPress={()=>navigation.navigate(props.materialID.toString(),{
+                previous:'home'
+            })}
         >
             <FontAwesomeNative
                 icon={faFile}
                 size={25}
                 style={tw`text-sky-600 mx-1`}
             />
-            <Text style={tw.style('text-sky-600 text-sm mx-1',{
+            <Text style={tw.style('text-sky-700 text-sm mx-1',{
                 fontFamily:'noto-sans-medium'
             })}>
                 {props.date}

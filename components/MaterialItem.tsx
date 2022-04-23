@@ -26,7 +26,9 @@ const MaterialItem = ({ props,removeMaterial }:any) => {
     }
     return (
         <TouchableOpacity
-            onPress={()=>navigation.navigate(props.materialID.toString())}
+            onPress={()=>navigation.navigate(props.materialID.toString(),{
+                previous:'feed'
+            })}
             style={tw.style('bg-white shadow-md px-4 py-5 mr-3 mb-3 rounded-lg w-full')}
         >
             <View style={tw`flex-row justify-between`}>

@@ -13,20 +13,20 @@ import LoginButton from '../components/LoginButton'
 const Register = () => {
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
-      <Text style={tw.style('text-sky-600 text-xl my-4 ml-5',{
+      <Text style={tw.style('text-sky-600 text-xl my-5 ml-5',{
           fontFamily:'noto-sans-medium'
       })}>
           Registering
       </Text>
       <Tabs />
-      <LoginButton callback={()=>{}} style='bg-pink-600 w-11/12 p-2 shadow-md'>
+      <LoginButton callback={()=>{}} style='bg-pink-500 w-11/12 p-2 shadow-md'>
         <View style={tw`flex-row justify-center`}>
         <FontAwesomeNative
             icon={faSync}
             size={30}
             style={tw`text-white my-auto mr-5 mb-1`}
         />
-        <View style={tw`flex-row`}>
+        <View style={tw`flex-row my-auto`}>
             <Text style={tw.style('text-base text-center text-white',{
                 fontFamily:'noto-sans-medium'
             })}>

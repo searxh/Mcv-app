@@ -11,7 +11,7 @@ const MaterialList = () => {
         setTimeout(()=>setMaterial(()=>material.filter((item:any)=>item.materialID!==materialID)),500)
     }
     return (
-        <View style={tw`bg-neutral-200 p-2 h-full`}>
+        <View style={tw`bg-sky-100 p-2 h-full`}>
             <View style={tw`flex-row`}>
                 {/*
                 <LoginButton

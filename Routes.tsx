@@ -8,13 +8,11 @@ import Account from './pages/Account'
 import Feed from './pages/Feed'
 import Register from './pages/Register'
 import Others from './pages/Others'
-import { allcourses } from './data/courses'
 import Course from './pages/CourseSections/Course'
 import Assignment from './pages/Assignment'
 import Announcement from './pages/Announcement'
 import Material from './pages/Material'
-import { hw } from './data/homework'
-import { getAllAnnouncements, getAllMaterials } from './data/courses'
+import { getAllAnnouncements, getAllMaterials, allcourses, getAllAssignments } from './data/courses'
 import { AnnouncementsContext } from './data/context'
 
 const all_announcements = getAllAnnouncements()
@@ -22,6 +20,7 @@ const all_announcements = getAllAnnouncements()
 const Tabs = () => {
     const Tab = createBottomTabNavigator()
     const materials = getAllMaterials()
+    const assignments = getAllAssignments()
     const [announcements,setAnnouncements] = React.useState(all_announcements)
     return (
         <AnnouncementsContext.Provider value={{announcements:announcements,setAnnouncements:setAnnouncements}}>
@@ -74,12 +73,12 @@ const Tabs = () => {
                      />
                 )
             })}
-            { hw.map((item:any)=>{
+            { assignments.map((item:any)=>{
                 return (
                     <Tab.Screen 
                         initialParams={item} 
-                        name={item.assignment} 
-                        key={item.id} 
+                        name={item.assignmentID.toString()} 
+                        key={item.assignmentID} 
                         component={Assignment}
                         options={{
                             headerShown: false,

@@ -20,32 +20,8 @@ const AnnouncementList = () => {
         }
     },[isFocused])
     return (
-        <View style={tw`bg-neutral-200 p-2 h-full`}>
+        <View style={tw`bg-sky-100 p-2 h-full`}>
             <View style={tw`flex-row`}>
-                {/*
-                <LoginButton
-                    style="bg-sky-600 p-3 w-[45%] shadow-md"
-                    callback={()=>setHomework(hw)}
-                >
-                    <Text
-                        style={tw.style('text-white text-base text-center',{
-                            fontFamily:'noto-sans-medium'
-                        })}>
-                            Show all
-                    </Text>
-                </LoginButton>
-                <LoginButton
-                    style="bg-sky-600 p-3 w-[45%] shadow-md"
-                    callback={()=>setHomework(null)}
-                >
-                    <Text
-                        style={tw.style('text-white text-base text-center',{
-                            fontFamily:'noto-sans-medium'
-                        })}>
-                            Hide all
-                    </Text>
-                </LoginButton>
-                 */}
             </View>
             <FlatList
                 data={announcement}

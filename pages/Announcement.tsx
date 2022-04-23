@@ -30,7 +30,7 @@ const Announcement = (props:any) => {
                     ?<ReturnButton style="my-auto" callback={()=>navigation.navigate(data.course)} />
                     :<ReturnButton style="my-auto" callback={()=>navigation.navigate('Feed')} />
                 }
-                <View style={tw`flex-1 my-4 ml-2 px-5`}>
+                <View style={tw`flex-1 my-3 ml-2 px-5`}>
                     <View style={tw`flex-row`}>
                         <FontAwesomeNative
                             size={30}
@@ -81,7 +81,7 @@ const Announcement = (props:any) => {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-            <NavBar />
+            <NavBar identify="Home" />
         </SafeAreaView>
     )
 }

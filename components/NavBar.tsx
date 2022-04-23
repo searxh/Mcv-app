@@ -9,10 +9,9 @@ import {
     faEllipsis,
 } from '@fortawesome/free-solid-svg-icons'
 import tw from 'twrnc'
-import ItemSeparator from './ItemSeparator'
 import { useNavigation, useRoute } from '@react-navigation/native'
 
-const NavBar = () => {
+const NavBar = ({ identify }:any) => {
     const { width } = Dimensions.get('window')
     const navigation = useNavigation<any>()
     const route = useRoute()
@@ -55,23 +54,23 @@ const NavBar = () => {
             keyExtractor={(item: any) => item.id}
             horizontal={true}
             scrollEnabled={false}
-            //ItemSeparatorComponent={ItemSeparator}
             renderItem={({ item: { name, icon, nav } }) => {
-                if (nav!==route.name) {
+                if (nav===route.name||nav===identify) {
                     return (
                         <TouchableOpacity
                             onPress={()=>navigation.navigate(nav)}
-                            style={tw.style('bg-white py-4',{
+                            style={tw.style('relative bg-white py-4',{
                                 width: width/5
                             })}
                         >
+                            {icon===faBell?<View style={tw`absolute right-7 top-4 w-3 h-3 bg-red-500 shadow-md rounded-full z-1`}></View>:null}
                             <FontAwesomeNative
                                 icon={icon}
                                 size={30}
-                                style={tw`text-sky-600 mx-auto my-auto mb-1`}
+                                style={tw`text-yellow-600 mx-auto my-auto mb-1`}
                             />
                             <Text 
-                                style={tw.style('text-center text-xs text-sky-600',{
+                                style={tw.style('text-center text-xs text-yellow-600',{
                                     fontFamily:'noto-sans-medium'
                                 })}
                             >
@@ -85,17 +84,18 @@ const NavBar = () => {
                             onPress={()=>{
                                 navigation.navigate(nav)
                             }}
-                            style={tw.style('bg-white py-4',{
+                            style={tw.style('relative bg-white py-4',{
                                 width: width/5
                             })}
                         >
+                            {icon===faBell?<View style={tw`absolute right-7 top-4 w-3 h-3 bg-red-500 shadow-md rounded-full z-1`}></View>:null}
                             <FontAwesomeNative
                                 icon={icon}
                                 size={30}
-                                style={tw`text-yellow-600 mx-auto my-auto mb-1`}
+                                style={tw`text-sky-600 mx-auto my-auto mb-1`}
                             />
                             <Text 
-                                style={tw.style('text-center text-xs text-yellow-600',{
+                                style={tw.style('text-center text-xs text-sky-600',{
                                     fontFamily:'noto-sans-medium'
                                 })}
                             >

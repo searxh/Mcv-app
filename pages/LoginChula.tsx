@@ -46,7 +46,7 @@ const LoginChula = () => {
                 />
             </View>
             <LoginButton
-                style='bg-pink-600 w-10/12 mt-12'
+                style='bg-pink-500 w-10/12 mt-12'
                 callback={()=>{
                     navigation.navigate('Tabs')
                 }}

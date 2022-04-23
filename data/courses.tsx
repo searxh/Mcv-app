@@ -44,6 +44,9 @@ const courses = [
                 daysago:101,
                 png: require('../assets/2182204.png'),
             }
+        ],
+        assignments:[
+            
         ]
     },
     {
@@ -80,6 +83,28 @@ const courses = [
                 daysago:4,
                 png: require('../assets/2143221.png'),
             }
+        ],
+        assignments:[
+            {
+                id:1,
+                assignment:'HW6 CTFT',
+                assignmentID: Math.floor((Math.random()*1000000)+1),
+                duein:6,
+                out:'Apr 20 2022',
+                due:'Apr 25 2022',
+                time:'23:59',
+                courseid:'2182204',
+                year:'2021/2',
+                course:'Signal and Linear Systems',
+                png: require('../assets/2143221.png'),
+                type:'Individual',
+                status:'submitted',
+                timestamp:'',
+                date:'',
+                submitby:'',
+                instruction:'',
+                link:'/sites/all/modules/courseville/files/ckfinder/userfiles/672628251/files/SLS65_HW6-17.pdf',
+            },
         ]
     },
     {
@@ -100,7 +125,7 @@ const courses = [
                 date:'4 Apr 2022',
                 timestamp:'12:14:23',
                 daysago:17,
-                png: require('../assets/2182204.png'),
+                png: require('../assets/2184202.png'),
                 viewed:false,
             },
             {
@@ -115,7 +140,7 @@ const courses = [
                 date:'8 Mar 2022',
                 timestamp:'14:16:21',
                 daysago:3,
-                png: require('../assets/2182204.png'),
+                png: require('../assets/2184202.png'),
                 viewed:false,
             },
             {
@@ -130,7 +155,7 @@ const courses = [
                 date:'4 Mar 2022',
                 timestamp:'19:23:56',
                 daysago:3,
-                png: require('../assets/2182204.png'),
+                png: require('../assets/2184202.png'),
                 viewed:false,
             }
         ],
@@ -267,6 +292,9 @@ const courses = [
                 daysago:9,
                 png: require('../assets/2184202.png'),
             },
+        ],
+        assignments:[
+            
         ]
     },
     {
@@ -318,6 +346,28 @@ const courses = [
                 daysago:8,
                 png: require('../assets/2190250.png'),
             }
+        ],
+        assignments:[
+            {
+                id:4,
+                assignment:'Homework 11: GPU programming with tensorflow',
+                assignmentID: Math.floor((Math.random()*1000000)+1),
+                duein:7,
+                out:'Apr 19 2022',
+                due:'Apr 26 2022',
+                time:'23:59',
+                courseid:'2190250',
+                year:'2021/2',
+                course:'Computer Architecture and Organization',
+                png: require('../assets/2190250.png'),
+                status:'not submitted',
+                timestamp:'',
+                date:'',
+                submitby:'',
+                type:'Individual',
+                instruction:"Try programming a real GPU\n\nI want you to try real GPU programming.  The easiest way is to use Google Colab.  I choose \"tensorflow with GPU\" to demonstrate the concept.  tensorflow is a package (library) of many AI programming.  In this demo, we will do applying \"image filtering\" to 100 images and compare the speed between CPU execution, and GPU execution.  The GPU is provided in Colab by Google.  We are not using GPU on our machine.\n\nHere is the video that guide you through the process (5 min)   https://youtu.be/7gOJopENloM\n\nUse Colab and try that in your browser.  Capture the screen of your result and submit it.\n\nHere is the link to that notebook   https://colab.research.google.com/notebooks/gpu.ipynb\n\nI have a challenge for you to try to do a more elaborate AI application, using TPU (Google own special GPU).  You just follow the notebook here.  https://colab.research.google.com/notebooks/tpu.ipynb\n\nDo not forget to set \"Runtime\" > \"runtime type\"  to \"TPU\" before you try it.\n\nThis challenge shows you many nice pictures.  No need to submit your result :-)",
+                link:'',
+            },
         ]
     },
     {
@@ -339,28 +389,85 @@ const courses = [
                 daysago:0,
                 png: require('../assets/2190221.png'),
             },
-        ]
-    }
-]
-const courses1 = [
-    {
-        id:2182203.02,
-        course:'Probability and Statistics for Engineers Section 2 (For AERO)',
-        year:'2021/1',
-        png: require('../assets/2182204.png'),
-        announcements:[
         ],
-        materials:[
+        assignments:[
+            {
+                id:2,
+                assignment:'HW06 - Double Hashing Concept',
+                assignmentID: Math.floor((Math.random()*1000000)+1),
+                duein:1,
+                out:'Apr 20 2022',
+                due:'Apr 25 2022',
+                time:'23:59',
+                courseid:'2190221',
+                year:'2021/2',
+                course:'Fundamental Data Structure and Algorithm',
+                png: require('../assets/2190221.png'),
+                status:'not submitted',
+                timestamp:'',
+                date:'',
+                submitby:'',
+                type:'Individual',
+            },
+            {
+                id:1,
+                assignment:'HW05 - Quadratic Probing Concept',
+                assignmentID: Math.floor((Math.random()*1000000)+1),
+                duein:1,
+                out:'Apr 20 2022',
+                due:'Apr 25 2022',
+                time:'23:59',
+                courseid:'2190221',
+                year:'2021/2',
+                course:'Fundamental Data Structure and Algorithm',
+                png: require('../assets/2190221.png'),
+                status:'not submitted',
+                timestamp:'',
+                date:'',
+                submitby:'',
+                type:'Individual',
+            },
         ]
     },
     {
-        id:2182204,
-        course:'Signal and Linear Systems lol',
+        id:2190261,
+        course:'Fundamental Data Structure and Algorithm Lab',
         year:'2021/1',
-        png: require('../assets/2143221.png'),
+        png: require('../assets/2190261.png'),
         announcements:[
         ],
         materials:[
+        ],
+        assignments:[
+            
+        ]
+    },
+]
+const courses1 = [
+    {
+        id:2190200,
+        course:'Discrete Structures',
+        year:'2021/1',
+        png: require('../assets/2110200.png'),
+        announcements:[
+        ],
+        materials:[
+        ],
+        assignments:[
+            
+        ]
+    },
+    {
+        id:2143101,
+        course:'Introduction to ICE',
+        year:'2021/1',
+        png: require('../assets/2143101.png'),
+        announcements:[
+        ],
+        materials:[
+        ],
+        assignments:[
+            
         ]
     }
 ]
@@ -442,6 +549,22 @@ export const getRecentMaterials = () => {
     const arr = getAllMaterials()
     return arr.filter((item:any)=>item.daysago < 14)
     .sort((a:any,b:any)=>a.daysago-b.daysago)
+}
+
+export const getAllAssignments = () => {
+    let arr:any = []
+    allcourses.forEach((item:any)=>{
+        item.assignments.forEach((item:any)=>{
+            arr.push(item)
+        })
+    })
+    return arr
+}
+
+export const getRecentAssignments = () => {
+    const arr = getAllAssignments()
+    return arr.filter((item:any)=>(item.duein < 14) && (item.duein > 0))
+    .sort((a:any,b:any)=>a.duein-b.duein)
 }
 
 

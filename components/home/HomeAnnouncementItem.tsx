@@ -10,19 +10,27 @@ const HomeAnnouncementItem = ({ props }:any) => {
     const isFocused = useIsFocused()
     return (
         <TouchableOpacity 
-            style={tw`relative flex-row ${props.viewed?'bg-white':'bg-yellow-50'} rounded-md shadow-md mx-auto mb-1`}
+            style={tw`flex-row bg-white rounded-md shadow-lg mx-auto mb-1`}
             onPress={()=>navigation.navigate(props.announcementID.toString(),{
                 previous:'home'
             })}
         >
+            {!props.viewed?
+                <View style={tw`h-2 w-2 bg-red-500 rounded-full`}>
+                </View>:
+                <View style={tw`h-2 w-2 bg-white rounded-full`}>
+                </View>
+            }
             <View style={tw`flex-row flex-1 p-2`}>
-                <Text style={tw.style('text-sky-600 text-sm mx-1',{
-                    fontFamily:'noto-sans-medium'
-                })}>
-                    {props.date}
-                </Text>
+                <View style={tw`my-auto`}> 
+                    <Text style={tw.style('text-sky-600 text-sm mx-1',{
+                        fontFamily:'noto-sans-medium'
+                    })}>
+                        {props.date}
+                    </Text>
+                </View>
                 <View style={tw`flex-1`}>
-                    <Text style={tw.style('text-sm text-neutral-700 mx-1',{
+                    <Text style={tw.style('text-sm text-neutral-700 mx-2',{
                         fontFamily:'noto-sans-medium'
                     })}>
                         {props.announcement}
@@ -36,7 +44,6 @@ const HomeAnnouncementItem = ({ props }:any) => {
                     style={tw`text-sky-600 mx-1 my-auto`}
                 />
             </TouchableOpacity>
-            {/*!props.viewed?<View style={tw`absolute left-0 h-full mx-auto w-[1%] bg-red-500 rounded`}></View>:null*/}
         </TouchableOpacity>
     )
 }
